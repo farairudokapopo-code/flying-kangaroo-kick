@@ -1,10 +1,12 @@
 # 🦘 Flying Kangaroo Kick
 
+**PLAY HERE:**
+
 **One paddle. One autonomous kangaroo. Infinite chaos.**
 
 A free, mobile-friendly, retro pixel-art browser arcade game built with **vanilla JavaScript, HTML Canvas, and CSS**. Catch the hopping kangaroo, score perfect landings, survive giant floating mini-bosses, collect coins, and customize your paddle with permanent upgrades and skins.
 
-![Flying Kangaroo Kick gameplay](assets/gameplay.png)
+
 
 ## ✨ Features
 
@@ -44,7 +46,7 @@ Mini-bosses arrive every five levels. Their unique encounters repeat after level
 
 Boss encounters have an entrance, warning phase, attack, and exit. Survive the full encounter for **45 coins and 130 points**. The bosses are hazards to outlast, not enemies to attack directly.
 
-![The Devourer](assets/boss-devourer.png)
+
 
 ## 🛒 Shop and progression
 
@@ -72,33 +74,6 @@ Paddle cosmetics: **Classic Gold** (included), **Neon Jade**, **Magma Block**, a
 Players begin with **150 starter coins** to try an upgrade. Coins and purchased upgrades are kept between runs. The personal best score is also saved on the current browser/device.
 
 Anti-gravity is deliberately **time-limited** rather than infinite. Permanent weightlessness would remove the game's central challenge and risk reintroducing the same endless-flight issue that the wall-boost fix solved.
-
-![Paddle shop](assets/shop.png)
-
-## 🚀 Deploy on GitHub Pages
-
-This is a **static website**, so deployment requires **no server, no Node.js, no packages, no API keys, and no build command**.
-
-1. Create a new **public** repository on GitHub, for example `Flying-Kangaroo-Kick`.
-2. Upload **all the files and the `assets/` folder** from this project to the *repository root*. The `index.html` file must be directly in that root.
-3. Commit the files to the `main` branch.
-4. In the repository, go to **Settings → Pages**.
-5. Under **Build and deployment**, choose **Deploy from a branch**. Select **`main`** and **`/(root)`**, then click **Save**.
-6. Once GitHub finishes publishing, visit `https://YOUR_USERNAME.github.io/Flying-Kangaroo-Kick/` (replace `YOUR_USERNAME` and match your exact repository name).
-
-If you use an existing repository, replace the old `index.html`, `game.js`, `config.js`, and `style.css` with the new versions. Be careful not to upload an *extra parent folder* above `index.html`.
-
-GitHub Pages guide: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-
-## 💻 Play locally
-
-Double-click `index.html`. Since there are no network dependencies, it also works offline. If your browser restricts `file://` storage, run a local server instead:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
 
 ## 📁 Repository structure
 
@@ -131,6 +106,3 @@ The entire game is intentionally dependency-free and designed for straightforwar
 
 The game uses the browser's `localStorage` (key `fkk-progress-v2` for coins/upgrades/skins and `fkk-best` for the high score). Saves are **local to that browser and website origin**, not synced across devices. Clearing site data or switching to another browser can reset progress. No accounts or servers are involved.
 
-## Status
-
-All core modes, bosses, power-ups, controls, shop purchasing, and sprite rendering have been exercised through automated browser checks. This is a playable release, but balance across long runs and many devices will benefit from community playtesting.
