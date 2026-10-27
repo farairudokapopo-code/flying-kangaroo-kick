@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#170b33">
+  <meta name="description" content="Flying Kangaroo Kick: a free pixel-art browser arcade game. Catch the autonomous kangaroo, survive boss attacks, and unlock upgrades.">
+  <title>Flying Kangaroo Kick · Pixel Arcade</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell" aria-label="Flying Kangaroo Kick arcade game">
+    <header class="topbar">
+      <div class="title-wrap">
+        <h1>FLYING<br>KANGAROO KICK<span class="title-star">✦</span></h1>
+        <p>ONE PADDLE / INFINITE CHAOS</p>
+      </div>
+      <div class="top-actions" aria-label="Game controls">
+        <div class="wallet" aria-live="polite"><span aria-hidden="true">◆</span> <span id="coinCount">150</span></div>
+        <button id="shopButton" class="gold-button" type="button">SHOP</button>
+        <button id="soundButton" type="button" aria-label="Turn sound on" aria-pressed="false">SFX OFF</button>
+        <button id="pauseButton" type="button" aria-label="Pause game">PAUSE</button>
+        <button id="restartButton" type="button">RESTART</button>
+      </div>
+    </header>
+    <div class="status-strip" aria-hidden="true"><span>LV 05: DEVOURER</span><span>LV 10: STONEBREAKER</span><span>LV 15: PHANTOM</span></div>
+    <div class="stage" id="stage">
+      <canvas id="game" tabindex="0" role="img" aria-label="Retro arcade game. Slide or drag to move the paddle. Press space to start, P to pause, M for sound, 1 for magnet, and 2 for anti-gravity.">Your browser needs HTML Canvas support to play.</canvas>
+    </div>
+    <div class="abilities" aria-label="Power-up controls">
+      <button id="magnetButton" class="ability-button" type="button" disabled><strong>1 · MAGNET</strong><small>LOCKED</small></button>
+      <button id="floatButton" class="ability-button" type="button" disabled><strong>2 · ANTI-GRAV</strong><small>LOCKED</small></button>
+      <div class="lives" title="Extra lives remaining"><strong>SHIELDS</strong><small id="livesCount">0</small></div>
+    </div>
+    <footer class="bottom-bar">DRAG OR ← → TO MOVE · SPACE START · P PAUSE · M SFX</footer>
+
+    <section id="shopModal" class="shop-modal" role="dialog" aria-modal="true" aria-labelledby="shopTitle" hidden>
+      <div class="shop-paper">
+        <header class="shop-head">
+          <div><span class="shop-kicker">THE OUTPOST</span><h2 id="shopTitle">PADDLE UPGRADES</h2></div>
+          <button id="closeShopButton" type="button" aria-label="Close shop">X CLOSE</button>
+        </header>
+        <p class="shop-description">SPEND COINS EARNED FROM CATCHES, BONUSES & BOSSES. UPGRADES STAY UNLOCKED BETWEEN RUNS.</p>
+        <div class="shop-balance">YOUR COINS <strong>◆ <span id="shopCoins">150</span></strong></div>
+        <div id="shopItems" class="shop-items"></div>
+        <p class="shop-footnote">MAGNET: 1 / TAP · ANTI-GRAV: 2 / TAP. ACTIVE SKILLS RECHARGE DURING PLAY.</p>
+      </div>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
