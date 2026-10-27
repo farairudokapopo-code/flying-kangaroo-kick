@@ -171,7 +171,7 @@
       progressLabel.textContent = `TIER ${tier}/${max}`;
       info.append(name, description, progressLabel);
       const button = document.createElement('button');
-      button.type = 'button'; button.textContent = price === null ? 'MAXED' : `◆ ${price}`;
+      button.type = 'button'; button.textContent = price === null ? 'MAXED' : `â ${price}`;
       button.disabled = price === null || progress.coins < price;
       button.addEventListener('click', () => {
         if (price === null || progress.coins < price || progress.upgrades[key] !== tier) return;
@@ -201,7 +201,7 @@
       info.append(name, detail, sample);
       const button = document.createElement('button');
       button.type = 'button';
-      button.textContent = equipped ? 'EQUIPPED' : hasSkin ? 'EQUIP' : `◆ ${skin.cost}`;
+      button.textContent = equipped ? 'EQUIPPED' : hasSkin ? 'EQUIP' : `â ${skin.cost}`;
       button.disabled = equipped || (!hasSkin && progress.coins < skin.cost);
       button.addEventListener('click', () => {
         if (equipped) return;
@@ -620,7 +620,7 @@
       combo++;
       score += 10 + 10 * Math.min(combo, 8); // cap combo points to keep scores meaningful
       earnCoins(6);
-      message('PERFECT  ×' + combo);
+      message('PERFECT  Ã' + combo);
       spray(roo.x, C.paddle.y, '#ffe99c', 16, 155);
       ping('perfect');
     } else {
@@ -632,10 +632,10 @@
     }
     if (catches % C.levels.catchesPerLevel === 0) {
       level++;
-      if (level === C.levels.boxesFrom) message('LEVEL 2 · FALLING BOXES', 2);
-      else if (level === C.levels.windFrom) message('LEVEL 3 · CROSSWINDS', 2);
-      else if (level === C.levels.shrinkFrom) message('LEVEL 4 · SMALLER PADDLE', 2);
-      else message('LEVEL ' + level + ' · KEEP HOPPING!', 2);
+      if (level === C.levels.boxesFrom) message('LEVEL 2 Â· FALLING BOXES', 2);
+      else if (level === C.levels.windFrom) message('LEVEL 3 Â· CROSSWINDS', 2);
+      else if (level === C.levels.shrinkFrom) message('LEVEL 4 Â· SMALLER PADDLE', 2);
+      else message('LEVEL ' + level + ' Â· KEEP HOPPING!', 2);
       spray(W / 2, 112, '#ffe0a4', 22, 155);
       if (!boss && level >= C.boss.firstLevel && level % C.boss.everyLevels === 0) spawnBoss();
     }
@@ -691,7 +691,7 @@
     }
   }
 
-  // 24×24 hand-pixeled kangaroo: tail, ears, pouch, nose and feet.
+  // 24Ã24 hand-pixeled kangaroo: tail, ears, pouch, nose and feet.
   const kangarooSprite = [
     '.............111........',
     '............1131...111..',
@@ -993,12 +993,12 @@
 
   function drawHud() {
     borderRect(8, 8, 116, 42, '#f6df9c', '#5d347f', '#24114b');
-    pixelText(ctx, 'SCORE', 18, 16, 10, '#f6df9c');
-    pixelText(ctx, String(score), 18, 28, 17, scoreFlash > 0 ? '#fff3be' : '#f0b541');
+    pixelText(ctx, 'SCORE', 18, 14, 13, '#f6df9c');
+    pixelText(ctx, String(score), 18, 29, 18, scoreFlash > 0 ? '#fff3be' : '#f0b541');
 
     borderRect(212, 8, 140, 42, '#f6df9c', '#5d347f', '#24114b');
-    pixelText(ctx, `LV ${level}`, 222, 16, 10, '#f6df9c');
-    pixelText(ctx, `BEST ${best}`, 222, 28, 10, '#f0b541');
+    pixelText(ctx, `LEVEL ${level}`, 222, 14, 12, '#f6df9c');
+    pixelText(ctx, `BEST ${best}`, 222, 29, 12, '#f0b541');
 
     borderRect(8, 56, 344, 18, '#f6df9c', '#5d347f', '#24114b');
     ctx.fillStyle = '#4a2b70';
@@ -1024,34 +1024,33 @@
   }
 
   function drawOverlay() {
-    ctx.fillStyle = 'rgba(13, 6, 33, 0.84)';
+    ctx.fillStyle = 'rgba(13, 6, 33, 0.86)';
     ctx.fillRect(0, 0, W, H);
-    borderRect(26, 118, 308, 290, '#f6df9c', '#6b3a8f', '#24114b');
-    pixelText(ctx, 'FLYING KANGAROO', W / 2, 144, 22, '#f0b541', 'center');
-    pixelText(ctx, 'KICK', W / 2, 170, 22, '#f0b541', 'center');
-    pixelText(ctx, 'ONE PADDLE · PURE CHAOS', W / 2, 208, 11, '#f6df9c', 'center');
+    borderRect(18, 116, 324, 308, '#f6df9c', '#6b3a8f', '#24114b');
+    pixelText(ctx, 'FLYING KANGAROO', W / 2, 143, 23, '#f0b541', 'center');
+    pixelText(ctx, 'KICK', W / 2, 174, 24, '#f0b541', 'center');
+    pixelText(ctx, 'ONE PADDLE / INFINITE CHAOS', W / 2, 218, 13, '#f6df9c', 'center');
 
     if (state === 'ready') {
-      pixelText(ctx, 'CATCH THE ROO AND KEEP IT ALIVE.', W / 2, 248, 10, '#fff1be', 'center');
-      pixelText(ctx, 'EDGE HITS SEND IT SIDEWAYS.', W / 2, 266, 10, '#fff1be', 'center');
-      pixelText(ctx, 'THE CENTER ZONE BUILDS COMBOS.', W / 2, 284, 10, '#fff1be', 'center');
-      pixelText(ctx, 'BOSSES EVERY 5 LEVELS.', W / 2, 314, 10, '#f0b541', 'center');
+      pixelText(ctx, 'CATCH THE ROO. STAY ALIVE.', W / 2, 259, 13, '#fff1be', 'center');
+      pixelText(ctx, 'EDGE HITS SEND IT SIDEWAYS.', W / 2, 281, 13, '#fff1be', 'center');
+      pixelText(ctx, 'CENTER HITS BUILD COMBOS.', W / 2, 303, 13, '#fff1be', 'center');
+      pixelText(ctx, 'BOSSES EVERY 5 LEVELS.', W / 2, 328, 13, '#f0b541', 'center');
     } else if (state === 'pause') {
-      pixelText(ctx, 'PAUSED', W / 2, 256, 18, '#fff1be', 'center');
-      pixelText(ctx, 'TAP, ENTER, OR SPACE TO RESUME.', W / 2, 284, 10, '#fff1be', 'center');
+      pixelText(ctx, 'PAUSED', W / 2, 262, 21, '#fff1be', 'center');
+      pixelText(ctx, 'TAP OR PRESS SPACE TO RESUME.', W / 2, 302, 13, '#fff1be', 'center');
     } else {
-      pixelText(ctx, 'RUN OVER', W / 2, 248, 18, '#fff1be', 'center');
-      pixelText(ctx, `SCORE ${score}`, W / 2, 274, 12, '#f6df9c', 'center');
-      pixelText(ctx, `LEVEL ${level}`, W / 2, 292, 12, '#f6df9c', 'center');
-      if (score === best && score > 0) pixelText(ctx, 'NEW BEST!', W / 2, 312, 12, '#f0b541', 'center');
+      pixelText(ctx, 'RUN OVER', W / 2, 253, 21, '#fff1be', 'center');
+      pixelText(ctx, `SCORE ${score}  /  LEVEL ${level}`, W / 2, 287, 15, '#f6df9c', 'center');
+      if (score === best && score > 0) pixelText(ctx, 'NEW PERSONAL BEST!', W / 2, 317, 14, '#f0b541', 'center');
     }
 
-    borderRect(88, 350, 184, 34, '#f6df9c', '#c17b2a', '#f0b541');
+    borderRect(81, 361, 198, 42, '#f6df9c', '#c17b2a', '#f0b541');
     const label = state === 'ready' ? 'TAP TO START' : state === 'pause' ? 'TAP TO RESUME' : 'PLAY AGAIN';
-    pixelText(ctx, label, W / 2, 360, 12, '#2b1738', 'center');
+    pixelText(ctx, label, W / 2, 374, 15, '#2b1738', 'center');
 
-    pixelText(ctx, 'DRAG OR ARROWS TO MOVE', W / 2, 430, 10, '#f6df9c', 'center');
-    pixelText(ctx, 'OPEN SHOP TO UNLOCK POWERS', W / 2, 447, 10, '#f0b541', 'center');
+    pixelText(ctx, 'DRAG OR ARROWS TO MOVE', W / 2, 452, 14, '#f6df9c', 'center');
+    pixelText(ctx, 'VISIT SHOP TO UNLOCK POWERS', W / 2, 477, 13, '#f0b541', 'center');
   }
 
   function draw() {
