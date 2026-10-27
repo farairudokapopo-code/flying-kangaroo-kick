@@ -1,6 +1,6 @@
 # 🦘 Flying Kangaroo Kick
 
-**PLAY HERE:**
+**PLAY HERE: [https://farairudokapopo-code.github.io/flying-kangaroo-kick/]**
 
 **One paddle. One autonomous kangaroo. Infinite chaos.**
 
