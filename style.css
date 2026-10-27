@@ -90,3 +90,99 @@ canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edge
 .skin-heading { margin: 10px 0 0; border-bottom: 2px solid #8551a1; padding: 6px 1px; color: #ffcf6a; font-size: 12px; }
 .skin-swatch { width: 98px; height: 12px; margin-top: 7px; border: 2px solid var(--skin-border); background: var(--skin-face); position: relative; }
 .skin-swatch::after { content: ''; position: absolute; width: 30px; height: 8px; top: 0; left: 32px; background: var(--skin-center); }
+
+/* Screen-size upgrade: desktop uses a wide arcade cabinet with a dedicated
+   control panel, leaving nearly the entire viewport height for the game. */
+.desktop-guide, .desktop-title-space { display: none; }
+
+@media (min-width: 760px) {
+  body { padding: 12px; }
+  .shell {
+    width: min(1060px, calc(100vw - 32px));
+    height: min(1040px, calc(100dvh - 24px));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+  }
+  .topbar {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 12px 18px;
+  }
+  .title-wrap { flex: 1 1 auto; }
+  .title-wrap h1 { font-size: clamp(22px, 2.3vw, 31px); line-height: 1.06; white-space: nowrap; }
+  .title-wrap h1 br { display: none; }
+  .desktop-title-space { display: inline; }
+  .title-wrap p { font-size: 12px; letter-spacing: 2px; }
+  .top-actions { margin: 0; justify-content: flex-end; gap: 8px; }
+  .top-actions button { padding: 11px 12px; font-size: 12px; }
+  .wallet { font-size: 15px; padding: 10px 12px; }
+  .status-strip {
+    grid-column: 1 / -1;
+    padding: 9px 17px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .stage {
+    grid-column: 1;
+    grid-row: 3;
+    min-width: 0;
+    min-height: 0;
+    padding: 2px 0;
+    border-right: 4px solid #72408c;
+    background-color: #170a30;
+    background-image: repeating-linear-gradient(90deg, #1b0b36 0 35px, #1e0e3a 35px 70px);
+  }
+  .abilities {
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    padding: 18px 14px;
+    border-top: 0;
+    background: #261044;
+  }
+  .ability-button, .lives { padding: 13px 10px; min-height: 64px; }
+  .ability-button strong, .lives strong { font-size: 15px; }
+  .ability-button small, .lives small { font-size: 12px; margin-top: 7px; }
+  .desktop-guide { display: block; color: #f0dcad; padding: 2px 3px 12px; }
+  .desktop-guide h2 { font-size: 15px; line-height: 1.35; margin: 6px 0; color: #ffca65; }
+  .desktop-guide p { font-size: 12px; line-height: 1.4; margin: 5px 0; }
+  .desktop-guide strong { color: #ffc36c; }
+  .desktop-guide .guide-kicker { letter-spacing: 1.4px; font-size: 10px; color: #d4a9f4; margin-top: 8px; }
+  .guide-divider { height: 3px; background: #75428e; margin: 9px 0; }
+  .bottom-bar {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    padding: 8px;
+    font-size: 12px;
+    letter-spacing: .5px;
+  }
+  .shop-modal { padding: 20px; }
+  .shop-paper { max-width: 760px; max-height: 96%; padding: 22px 24px; }
+  .shop-head h2 { font-size: 26px; }
+  .shop-description, .shop-footnote { font-size: 13px; }
+  .shop-balance { font-size: 15px; }
+  .shop-item { padding: 12px 14px; gap: 20px; }
+  .shop-item h3 { font-size: 16px; }
+  .shop-item p { font-size: 13px; }
+  .shop-item .tier { font-size: 12px; }
+  .shop-item button { min-width: 120px; font-size: 14px; padding: 12px; }
+  .shop-kicker { font-size: 12px; }
+  .shop-head button { font-size: 13px; padding: 12px; }
+}
+
+@media (min-width: 760px) and (max-height: 720px) {
+  .topbar { padding-top: 6px; padding-bottom: 6px; }
+  .title-wrap h1 { font-size: 22px; }
+  .status-strip { padding-top: 5px; padding-bottom: 5px; }
+  .abilities { padding-top: 10px; }
+}
